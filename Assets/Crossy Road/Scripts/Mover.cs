@@ -8,11 +8,11 @@ public class Mover : MonoBehaviour {
 	public bool parentOnTrigger = true;
 	public bool hitBoxOnTrigger = false;
 	public GameObject moverObject = null;
-	private Renderer renderer = null;
+	private Renderer mRenderer = null;
 	private bool isVisible = false;
 	// Use this for initialization
 	void Start () {
-		renderer = moverObject.GetComponent<Renderer>();
+		mRenderer = moverObject.GetComponent<Renderer>();
 		speed = 1;
 	}
 	
@@ -22,11 +22,11 @@ public class Mover : MonoBehaviour {
 		IsVisible();
 	}
 	void IsVisible(){
-		if(renderer.isVisible){
+		if(mRenderer.isVisible){
 			isVisible = true;
 		}
 		
-		if(!renderer.isVisible && isVisible){
+		if(!mRenderer.isVisible && isVisible){
 			Debug.Log("Remove object no longer seen");
 			Destroy(this.gameObject);
 		}

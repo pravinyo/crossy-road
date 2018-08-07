@@ -13,11 +13,11 @@ public class PlayerController : MonoBehaviour {
     public bool jumpStart = false;
     public ParticleSystem particle = null;
     public GameObject chick = null;
-    private Renderer renderer = null;
+    private Renderer mRenderer = null;
     private bool isVisible = false;
 
     void Start(){
-        renderer=chick.GetComponent<Renderer>();
+        mRenderer=chick.GetComponent<Renderer>();
     }
     void Update(){
         // TODO: Manager -> CanPlay()
@@ -103,10 +103,10 @@ public class PlayerController : MonoBehaviour {
     }
 
     void IsVisible(){
-        if(renderer.isVisible){
+        if(mRenderer.isVisible){
             isVisible = true;
         }
-        if(!renderer.isVisible && isVisible){
+        if(!mRenderer.isVisible && isVisible){
             Debug.Log("Got hit since player moved off the screen");
             GotHit();
         }
